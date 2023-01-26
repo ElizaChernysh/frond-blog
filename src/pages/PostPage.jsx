@@ -86,7 +86,7 @@ export const PostPage = () => {
             >
               {post?.imgUrl && (
                 <img
-                  src={`https://backend-for-posts-production.up.railway.app}/${post.imgUrl}`}
+                  src={`https://backend-for-posts-production.up.railway.app/${post.imgUrl}`}
                   alt="img"
                   className="object-cover w-full"
                 />
