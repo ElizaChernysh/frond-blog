@@ -23,7 +23,7 @@ export const registerUser = createAsyncThunk('auth/registerUser',
       return data;
 
     } catch (error) {
-      console.log(error)
+      console.log(error, 'Помилка клієнта')
     }
   });
 
