@@ -4,24 +4,25 @@ import Moment from "react-moment";
 import { Link } from "react-router-dom";
 
 export const PostItem = ({ post }) => {
-  if (!post) {
-    return (
-      <div className="text-xl text-center text-white py-10">
-        Завантаження...
-      </div>
-    );
-  }
+  // if (!post) {
+  //   return (
+  //     <div className="text-xl text-center text-white py-10">
+  //       Завантаження...
+  //     </div>
+  //   );
+  // }
 
   return (
     <Link to={`/${post._id}`}>
-      <div className="flex flex-col basis-1/4 flex-grow">
+      {post ? (
+        <div className="flex flex-col basis-1/4 flex-grow">
         <div
           // className={post.imgUrl ? "flex rounded-sm h-80" : "flex rounded-sm"}
         >
           {post.imgUrl && (
             <img
               src={`https://backend-for-posts-production.up.railway.app/${post.imgUrl}`}
-              alt="img"
+              alt={post.imgUrl}
               className="object-cover w-full"
             />
           )}
@@ -46,6 +47,11 @@ export const PostItem = ({ post }) => {
           </button>
         </div>
       </div>
+      ) : (
+        <div className="text-xl text-center text-white py-10">
+        Завантаження...
+      </div>
+      )}
     </Link>
   );
 };
