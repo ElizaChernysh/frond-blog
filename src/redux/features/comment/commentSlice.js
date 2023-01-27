@@ -46,7 +46,7 @@ export const commentSlice = createSlice({
           state.loading = false
           state.comments.push(action.payload)
       },
-      [createComment.rejected]: (state) => {
+      [createComment.rejectWithValue]: (state) => {
           state.loading = false
       },
       // Получение комментов
@@ -57,7 +57,7 @@ export const commentSlice = createSlice({
           state.loading = false
           state.comments = action.payload
       },
-      [getPostComments.rejected]: (state) => {
+      [getPostComments.rejectWithValue]: (state) => {
           state.loading = false
       },
   },

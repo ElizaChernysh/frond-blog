@@ -65,7 +65,7 @@ export const postSlice = createSlice({
       state.loading = false
       state.posts.push(action.payload)
     },
-    [createPost.rejected]: (state) => {
+    [createPost.rejectWithValue]: (state) => {
       state.loading = false
     },
 
@@ -78,7 +78,7 @@ export const postSlice = createSlice({
       state.posts = action.payload.posts
       state.popularPosts = action.payload.popularPosts
     },
-    [getAllPosts.rejected]: (state) => {
+    [getAllPosts.rejectWithValue]: (state) => {
       state.loading = false
     },
 
@@ -92,7 +92,7 @@ export const postSlice = createSlice({
         (post) => post._id !== action.payload._id,
       )
     },
-    [removePost.rejected]: (state) => {
+    [removePost.rejectWithValue]: (state) => {
       state.loading = false
     },
 
@@ -108,7 +108,7 @@ export const postSlice = createSlice({
       )
       state.posts[index] = action.payload
     },
-    [updatePost.rejected]: (state) => {
+    [updatePost.rejectWithValue]: (state) => {
       state.loading = false
     },
   },
