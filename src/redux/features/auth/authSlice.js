@@ -9,9 +9,9 @@ const initialState = {
 }
 
 export const registerUser = createAsyncThunk('auth/registerUser',
-  async (params) => {
+  async ({username, password}) => {
     try {
-      const { data } = await axios.post('/auth/register', params);
+      const { data } = await axios.post('/auth/register', {username, password});
 
       if (data.token) {
         window.localStorage.setItem('token', data.token)
@@ -75,14 +75,11 @@ export const authSlice = createSlice({
     [registerUser.fulfilled]: (state, action) => {
       state.isLoading = false;
       state.status = action.payload.message;
-      state.status = 'loaded';
       state.user = action.payload.user;
       state.token = action.payload.token;
     },
-    [registerUser.rejected]: (state, action) => {
+    [registerUser.rejectWithValue]: (state, action) => {
       state.status = action.payload.message;
-      state.status = 'error'
-
       state.isLoading = false;
     },
 
@@ -97,7 +94,7 @@ export const authSlice = createSlice({
       state.user = action.payload.user;
       state.token = action.payload.token;
     },
-    [loginUser.rejected]: (state, action) => {
+    [loginUser.rejectWithValue]: (state, action) => {
       state.status = action.payload.message;
       state.isLoading = false;
     },
@@ -113,7 +110,7 @@ export const authSlice = createSlice({
       state.user = action.payload?.user;
       state.token = action.payload?.token;
     },
-    [getMe.rejected]: (state, action) => {
+    [getMe.rejectWithValue]: (state, action) => {
       state.status = action.payload.message;
       state.isLoading = false;
     },
