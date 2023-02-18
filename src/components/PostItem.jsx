@@ -4,13 +4,13 @@ import Moment from "react-moment";
 import { Link } from "react-router-dom";
 
 export const PostItem = ({ post }) => {
-  if (!post) {
-    return (
-      <div className="text-xl text-center text-white py-10">
-        Завантаження...
-      </div>
-    );
-  }
+  // if (!post) {
+  //   return (
+  //     <div className="text-xl text-center text-white py-10">
+  //       Завантаження...
+  //     </div>
+  //   );
+  // }
 
   return (
     <Link to={`/${post._id}`}>

@@ -12,13 +12,13 @@ export const MainPage = () => {
     dispatch(getAllPosts());
   }, [dispatch]);
 
-  if (!posts) {
-    return (
-      <div className="text-xl text-center text-white py-10">
-        Завантаження...
-      </div>
-    );
-  }
+  // if (!posts) {
+  //   return (
+  //     <div className="text-xl text-center text-white py-10">
+  //       Завантаження...
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className="max-w-[900px] mx-auto py-10">

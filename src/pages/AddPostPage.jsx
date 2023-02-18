@@ -52,8 +52,6 @@ export const AddPostPage = () => {
     setFileDataURL(null);
   };
 
-  console.log(image);
-  // console.log(URL.createObjectURL(image));
 
   return (
     <form className="w-1/3 mx-auto py-10" onSubmit={(e) => e.preventDefault()}>
